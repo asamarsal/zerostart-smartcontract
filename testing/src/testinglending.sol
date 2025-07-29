@@ -22,7 +22,8 @@ contract TestingLending is Ownable {
     // Lender deposit ETH
     receive() external payable {}
 
-    function borrow(uint256 amountInWei) external {
+    function borrow(uint256 amountInWei) 
+    external {
         require(address(this).balance >= amountInWei, "Not enough ETH in pool");
         require(loans[msg.sender].amount == 0, "Already has loan");
 
