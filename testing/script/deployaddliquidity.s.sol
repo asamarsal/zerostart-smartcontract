@@ -9,9 +9,10 @@ contract Deploy is Script {
         uint256 deployerKey = vm.envUint("PRIVATE_KEY");
         address tokenA = vm.envAddress("TOKEN_A");
         address tokenB = vm.envAddress("TOKEN_B");
+        address usdt = vm.envAddress("ADDRESS_USDT");
 
         vm.startBroadcast(deployerKey);
-        CustomLiquidity pool = new CustomLiquidity(tokenA, tokenB);
+        CustomLiquidity pool = new CustomLiquidity(tokenA, tokenB, usdt);
         vm.stopBroadcast();
 
         console.log("Pool deployed at:", address(pool));
